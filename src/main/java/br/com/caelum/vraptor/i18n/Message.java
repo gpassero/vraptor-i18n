@@ -114,6 +114,11 @@ public class Message {
 		if (this.args == null) {
 			return message;
 		}
+		for (int i = 0; i < args.length; i++) {
+			if (bundle.containsKey(args[i])) {
+				args[i] = bundle.getString(args[i]);
+			}
+		}
 		return MessageFormat.format(message, (Object[])args);
 	}
 
